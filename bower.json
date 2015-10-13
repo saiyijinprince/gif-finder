@@ -1,0 +1,13 @@
+{
+  "name": "gif-finder",
+  "description": "Find the most appropriate reaction gif to reply in you messages.",
+  "author": [
+    "ssj_100"
+  ],
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.3.0",
+    "angular-ui-router": "~0.2.11",
+    "jquery":"2.1.1"
+  }
+}
