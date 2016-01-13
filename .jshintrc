@@ -1,13 +1,20 @@
 {
+  "node": true,
   "globalstrict": true,
   "globals": {
-    "angular": false,
+    "angular": true,
     "describe": false,
     "it": false,
-    "expect": false,
+    "expect": true,
     "beforeEach": false,
     "afterEach":false,
     "module": false,
-    "inject": false
+    "inject": false,
+    "document": true,
+    "app": true,
+    "$": true,
+    "jQuery": true,
+    "_": true,
+    "define": true
   }
 }

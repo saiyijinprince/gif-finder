@@ -1,0 +1,10 @@
+bower_components/
+node_modules/
+.tmp/
+dist/
+deploy.zip
+deploy/
+coverage/
+docs/
+npm-debug.log
+.idea/

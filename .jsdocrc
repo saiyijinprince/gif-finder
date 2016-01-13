@@ -1,0 +1,30 @@
+{
+    "opts": {
+        "destination": "docs/"
+    },
+    "source": {
+        "exclude" : [
+        ],
+        "include": [
+            "README.md"
+        ]
+    },
+    "tags": {
+        "allowUnknowsTags": false
+    },
+    "templates": {
+        "cleverLinks": true,
+        "collapseSymbols": false,
+        "copyright": "Avenash Kabeera",
+        "footer":"",
+        "highlightTutorialCode": true,
+        "inverseNav": true,
+        "navType": "vertical",
+        "outputSourceFiles": true,
+        "outputSourcePath": true,
+        "path": "ink-docstrap",
+        "syntaxTheme": "dark",
+        "systemName": "gf",
+        "theme": "cerulean"
+    }
+}
