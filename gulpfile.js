@@ -17,7 +17,6 @@ var zip = require('gulp-zip');
 var connect = require('gulp-connect');
 var proxy = require('http-proxy-middleware');
 
-
 var paths = {
     lintFiles: [
       'gulpfile.js',
@@ -48,9 +47,9 @@ if (argv.production){
 
 gulp.task( 'connect', function() {
     connect.server( {
-        root: 'dist',
+        root: './',
         port: 9002,
-        livereload: true,
+        livereload: true/*,
         middleware: function() {
             return [
                 proxy( '/services', {
@@ -60,6 +59,7 @@ gulp.task( 'connect', function() {
                 })
             ];
         }
+        */
     });
 });
 
@@ -122,19 +122,23 @@ gulp.task( 'jshint', function() {
 
 gulp.task( 'bower' , function() {
    return gulp.src( mainBowerFiles() )
-       .pipe( gulp.dest( 'dist' ) );
+       .pipe( gulp.dest( 'dist/bower_components/' ), { base: '.' } );
 });
 
 gulp.task('inject', function () {
     var path = require('path');
     var cdnizer = require('gulp-cdnizer');
     var inject = require('gulp-inject');
+
+    var bowerFiles = mainBowerFiles();
+
+    console.log(bowerFiles);
     return gulp
         .src(['src/*.html'])
         .pipe(inject(gulp.src(mainBowerFiles(), {read: false}),
             {addRootSlash: false, relative: false, name: 'bower'}))
         .pipe(inject(gulp.src(['./*.js', './*.css'],
-            {read: false, cwd: path.join(__dirname, '/dist')}), {addRootSlash: false}))
+            {read: false, cwd: path.join(__dirname, '/dist')}), {addRootSlash: false, relative: true }))
         /*
         .pipe(cdnizer({
             defaultCDNBase: '//cdn.factset.com',
@@ -189,7 +193,7 @@ gulp.task('inject', function () {
             ]
         }))
         */
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./'));
 });
 
 function getTemplateCache() {
